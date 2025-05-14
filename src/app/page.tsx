@@ -340,7 +340,7 @@ export default function Home() {
                 <button
                   onClick={handlePrevCard}
                   className={cn(
-                    "absolute left-0 z-10 p-2 bg-white/80 rounded-full shadow-lg",
+                    "absolute left-0 z-10 p-3 bg-gray-700 text-white rounded-full shadow-lg",
                     currentCardIndex === 0 && "opacity-50 cursor-not-allowed"
                   )}
                   disabled={currentCardIndex === 0}
@@ -381,7 +381,7 @@ export default function Home() {
                 <button
                   onClick={handleNextCard}
                   className={cn(
-                    "absolute right-0 z-10 p-2 bg-white/80 rounded-full shadow-lg",
+                    "absolute right-0 z-10 p-3 bg-gray-700 text-white rounded-full shadow-lg",
                     currentCardIndex === EXAMPLE_CARDS.length - 1 && "opacity-50 cursor-not-allowed"
                   )}
                   disabled={currentCardIndex === EXAMPLE_CARDS.length - 1}
