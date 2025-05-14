@@ -1,10 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { format } from 'date-fns';
 
-export default function DocumentPage() {
+export const dynamic = 'force-dynamic';
+
+// New component to contain the logic using useSearchParams
+function DocumentContent() {
   const searchParams = useSearchParams();
   
   const scopeOfWork = searchParams.get('scope') || 'Not provided';
@@ -143,5 +146,14 @@ export default function DocumentPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+// Default export component wraps DocumentContent in Suspense
+export default function DocumentPage() {
+  return (
+    <Suspense fallback={<div>Loading document...</div>}>
+      <DocumentContent />
+    </Suspense>
   );
 }
