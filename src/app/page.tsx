@@ -41,7 +41,7 @@ const MAX_IMAGES = 5;
 const EXAMPLE_CARDS = [
   {
     title: "Contact Info",
-    prompt: "Tell us the customer's name, address, email, and phone?",
+    prompt: "Tell us the customer's name, address, email, and phone number.",
     content: "We're doing this work for Jane Stevens at 12 Main Street in Portland, Maine, 04103. Her email is j-stevens1986 at hotmail. Her number is 555-555-5555.",
     icon: "🏠"
   },
