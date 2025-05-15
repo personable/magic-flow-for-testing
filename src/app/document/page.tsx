@@ -71,8 +71,7 @@ function DocumentContent() {
       </div> */}
 
       <div className="px-8 py-10 pt-12 flex justify-end" style={{transform: 'translate3d(0, 15%, 0)'}}>
-        <p className="text-md font-normal bg-white p-6 rounded-lg max-w-[500px] shadow-lg" style={{fontFamily: `'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive;
-font-weight: normal;`, transform: 'rotate(5deg)'}}>
+        <p className="text-lg font-normal bg-white p-6 rounded-lg max-w-[500px] shadow-lg" style={{fontFamily: `'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive`, transform: 'rotate(5deg)'}}>
       <span className="block mb-4">👋&nbsp; {firstName},</span>{scopeOfWork} <span className="block mt-2">Eric & the Custom Construction Crew</span></p>
       </div>
       </header>
