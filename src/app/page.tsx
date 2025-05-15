@@ -580,10 +580,6 @@ export default function Home() {
             />
             <CategoryCard title="Budget" icon={DollarSign}>
               <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <h2 className="text-xl font-bold">Budget</h2>
-                  <span className="text-2xl">$</span>
-                </div>
                 
                 <Textarea
                   value={categorizedInfo.budget === "Not mentioned" ? "" : categorizedInfo.budget}
