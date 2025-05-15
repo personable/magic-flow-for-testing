@@ -97,7 +97,7 @@ Analyze the following transcribed text:
 
 Categorize the information into the following sections and structure the output as a JSON object matching the provided schema:
 
-1.  **scopeOfWork**: Identify all details related to the project's tasks, deliverables, and objectives. Rewrite this information into professional-sounding paragraphs that instill customer confidence. If no scope details are found, set this field to "Not mentioned".
+1.  **scopeOfWork**: Identify all details related to the project's tasks, deliverables, and objectives. Rewrite this information into professional-sounding paragraphs that instill customer confidence. Address the customer directly as "you". Make the message friendly, personable, and reassuring. If no scope details are found, set this field to "Not mentioned".
 2.  **contactInformation**: Extract any names, phone numbers, email addresses, company affiliations, and physical addresses mentioned. Structure this as an object with the following keys: 'name', 'address', 'phone', 'email'.
     *   For the 'address' field: If an address is mentioned but seems incomplete (e.g., missing city, state, or zip code), use your knowledge to try and complete it based on the available information like street name and potentially mentioned city/region. If you cannot confidently complete it, provide the address as extracted.
     *   For each key ('name', 'address', 'phone', 'email'): If the corresponding information is not found in the text, set the value for that key to "Not mentioned".
