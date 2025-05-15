@@ -214,7 +214,7 @@ const AudioRecorder: React.FC<AudioRecorderProps> = ({
         onClick={isRecording ? stopRecording : startRecording}
         disabled={isProcessing}
         size="lg"
-        className={`w-24 h-24 rounded-full shadow-lg transition-transform transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed text-accent-foreground ${
+        className={`w-20 h-20 rounded-full shadow-lg transition-transform transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed text-accent-foreground ${
           isRecording
             ? "bg-gradient-to-br from-red-500 to-red-700 hover:from-red-500/90 hover:to-red-700/90"
             : "bg-gradient-to-br from-accent to-blue-700 hover:from-accent/90 hover:to-blue-700/90"
@@ -226,7 +226,7 @@ const AudioRecorder: React.FC<AudioRecorderProps> = ({
         ) : isRecording ? (
           <StopCircle className="h-10 w-10" />
         ) : (
-          <Mic className="h-12 w-12" />
+          <Mic className="h-10 w-10" />
         )}
       </Button>
 

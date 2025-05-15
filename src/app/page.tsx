@@ -41,21 +41,25 @@ const MAX_IMAGES = 5;
 const EXAMPLE_CARDS = [
   {
     title: "Contact Info",
+    prompt: "Tell us the customer's name, address, email, and phone?",
     content: "We're doing this work for Jane Stevens at 12 Main Street in Portland, Maine, 04103. Her email is j-stevens1986 at hotmail. Her number is 555-555-5555.",
     icon: "🏠"
   },
   {
     title: "Scope of Work",
+    prompt: "Talk us through the work you're planning, step-by-step.",
     content: "We're installing 10 Richards Windows to code. Removing old window weights and stuffing the cavities. We're going to wrap exterior casings with custom-fit aluminum. Clean-up and disposal of old windows.",
-    icon: "🔨"
+    icon: "🛠️"
   },
   {
     title: "Timeline",
+    prompt: "How long will the work take?",
     content: "This work should take about three days. If the weather is bad, we'll have to pause, and it'll take longer.",
     icon: "📅"
   },
   {
     title: "Budget & Payment",
+    prompt: "How much will the work cost, and is there a down payment required?",
     content: "Total cost is going to be around five-thousand, and we're going to need twenty-five hundred down to start the work.",
     icon: "💰"
   }
@@ -331,22 +335,13 @@ export default function Home() {
       <main style={{ overflowY: "auto" }}>
         {!isLoading && !isCategorizing && !transcribedText && !categorizedInfo && (
           <>
-            <h1 className="text-2xl mb-10 text-center font-bold">
-              Tap the 🎙️ and talk about the topics on each of the cards &hellip;
+            <h1 className="text-2xl mb-8 px-4 text-center font-bold">
+              Tap the 🎙️ and talk through each of the cards &hellip;
             </h1>
 
             <div className="relative w-full overflow-hidden px-4">
               <div className="relative flex justify-center items-center">
-                <button
-                  onClick={handlePrevCard}
-                  className={cn(
-                    "absolute left-0 z-10 p-3 bg-gray-700 text-white rounded-full shadow-lg",
-                    currentCardIndex === 0 && "opacity-50 cursor-not-allowed"
-                  )}
-                  disabled={currentCardIndex === 0}
-                >
-                  <ChevronLeft className="h-6 w-6" />
-                </button>
+
                 
                 <div className="w-[320px] relative">
                   {EXAMPLE_CARDS.map((card, index) => (
@@ -361,15 +356,18 @@ export default function Home() {
                           : "opacity-0 pointer-events-none translate-x-full"
                       )}
                     >
-                      <Card className="h-[300px] bg-white shadow-lg">
+                      <Card className="h-[300px] bg-white shadow-md">
                         <CardHeader>
                           <div className="flex items-center gap-2">
-                            <span className="text-2xl">{card.icon}</span>
+                            <span className="text-4xl mr-2">{card.icon}</span>
                             <CardTitle>{card.title}</CardTitle>
                           </div>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-muted-foreground text-m leading-relaxed">
+                        <p className="text-gray-600 font-bold text-sm mb-4">
+                            {card.prompt}
+                          </p>
+                          <p className="text-gray-400 text-sm leading-relaxed">
                             Example: &#8220;{card.content}&#8221;
                           </p>
                         </CardContent>
@@ -377,18 +375,27 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-
-                <button
+              </div>
+              {currentCardIndex !== 0 ?               <button
+                  onClick={handlePrevCard}
+                  className={cn(
+                    "absolute left-[8px] top-[36%] z-30 p-3 bg-gray-700 text-white rounded-full shadow-lg",
+                    currentCardIndex === 0 && "opacity-50 cursor-not-allowed"
+                  )}
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </button> : null }
+                {currentCardIndex !== EXAMPLE_CARDS.length - 1 ?                 <button
                   onClick={handleNextCard}
                   className={cn(
-                    "absolute right-0 z-10 p-3 bg-gray-700 text-white rounded-full shadow-lg",
+                    "absolute right-[8px] top-[36%] z-30 p-3 bg-gray-700 text-white rounded-full shadow-lg",
                     currentCardIndex === EXAMPLE_CARDS.length - 1 && "opacity-50 cursor-not-allowed"
                   )}
                   disabled={currentCardIndex === EXAMPLE_CARDS.length - 1}
                 >
                   <ChevronRight className="h-6 w-6" />
-                </button>
-              </div>
+                </button> : null}
+
 
               <div className="flex justify-center gap-1 mt-4">
                 {EXAMPLE_CARDS.map((_, index) => (
@@ -402,6 +409,7 @@ export default function Home() {
                     )}
                   />
                 ))}
+                
               </div>
             </div>
           </>
@@ -650,18 +658,18 @@ export default function Home() {
         {!isLoading && !isCategorizing && categorizedInfo ? (
           <>
             <button
-              className="w-24 h-24 rounded-full shadow-lg grid place-items-center"
+              className="w-20 h-20 rounded-full shadow-lg grid place-items-center"
               id="reload"
               onClick={() => window.location.reload()}
             >
-              <RotateCcw className="h-10 w-10" />
+              <RotateCcw className="h-8 w-8" />
             </button>
             <button
               id="create"
-              className="w-24 h-24 rounded-full shadow-lg grid place-items-center bg-green-700 text-accent-foreground"
+              className="w-20 h-20 rounded-full shadow-lg grid place-items-center bg-green-700 text-accent-foreground"
               onClick={handleCreateDocument}
             >
-              <Check className="h-10 w-10" />
+              <Check className="h-8 w-8" />
             </button>
           </>
         ) : (
